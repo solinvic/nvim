@@ -78,7 +78,7 @@ return {
             settings = {
                 intelephense = {
                     environment = {
-                        phpVersion = "8.3.0",
+                        phpVersion = "8.5.0",
                     },
                     format = {
                         braces = "k&r",
@@ -90,6 +90,7 @@ return {
                         relaxedTypeCheck = false,
                         undefinedConstants = false,
                         noMixedTypeCheck = false,
+                        strictTypes = true,
                     },
                     stubs = {
                         -- Defaults
@@ -206,6 +207,11 @@ return {
                 }
             }
 		})
+        vim.lsp.config('vtsls', {
+			on_attach = on_attach,
+			flags = lsp_flags,
+			capabilities = capabilities,
+        })
 
 
         vim.lsp.enable({
@@ -227,6 +233,7 @@ return {
             'harper_ls',
             'ansiblels',
             'elixirls',
+            'vtsls',
         })
 	end
 }

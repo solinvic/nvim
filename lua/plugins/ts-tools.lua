@@ -1,36 +1,36 @@
 return {
-  "pmizio/typescript-tools.nvim",
-  dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  opts = {},
-  config = function ()
-    local fzf = require("fzf-lua")
-    require("typescript-tools").setup({
-      on_attach = function(client, bufnr)
-			-- Enable completion triggered by <c-x><c-o>
-			vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-			local bufopts = { noremap = true, silent = true, buffer = bufnr }
-			vim.keymap.set('n', '<space>k', vim.lsp.buf.hover, bufopts)
-			-- vim.keymap.set('n', '<C-m>', vim.lsp.buf.signature_help, bufopts)
-            -- vim.keymap.set('i', '<C-m>', vim.lsp.buf.signature_help, bufopts)
-            vim.keymap.set('n', '<space>K', vim.diagnostic.open_float, bufopts)
-
-            vim.keymap.set('n', '=', function() vim.lsp.buf.format({ async = true }) end, bufopts)
-			vim.keymap.set('v', '=', function() vim.lsp.buf.format({ async = true }) end, bufopts)
-
-            vim.keymap.set('n', 'gr', fzf.lsp_references, bufopts)
-            vim.keymap.set('n', 'gi', fzf.lsp_implementations, bufopts)
-            vim.keymap.set('n', 'gd', fzf.lsp_definitions, bufopts)
-            vim.keymap.set('n', 'gy', fzf.lsp_typedefs, bufopts)
-
-            vim.keymap.set('n', '<space>s', fzf.lsp_document_symbols, bufopts)
-            vim.keymap.set('n', '<space>S', fzf.lsp_workspace_symbols, bufopts)
-            vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
-            vim.keymap.set('n', '<space>d', fzf.diagnostics_document, bufopts)
-            vim.keymap.set('n', '<space>D', fzf.diagnostics_workspace, bufopts)
-            vim.keymap.set('n', '<space>a', fzf.lsp_code_actions, bufopts)
-
-		end
-    })
-  end
+--  "pmizio/typescript-tools.nvim",
+--  dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+--  opts = {},
+--  config = function ()
+--    local fzf = require("fzf-lua")
+--    require("typescript-tools").setup({
+--      on_attach = function(client, bufnr)
+--			-- Enable completion triggered by <c-x><c-o>
+--			vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+--
+--			local bufopts = { noremap = true, silent = true, buffer = bufnr }
+--			vim.keymap.set('n', '<space>k', vim.lsp.buf.hover, bufopts)
+--			-- vim.keymap.set('n', '<C-m>', vim.lsp.buf.signature_help, bufopts)
+--            -- vim.keymap.set('i', '<C-m>', vim.lsp.buf.signature_help, bufopts)
+--            vim.keymap.set('n', '<space>K', vim.diagnostic.open_float, bufopts)
+--
+--            vim.keymap.set('n', '=', function() vim.lsp.buf.format({ async = true }) end, bufopts)
+--			vim.keymap.set('v', '=', function() vim.lsp.buf.format({ async = true }) end, bufopts)
+--
+--            vim.keymap.set('n', 'gr', fzf.lsp_references, bufopts)
+--            vim.keymap.set('n', 'gi', fzf.lsp_implementations, bufopts)
+--            vim.keymap.set('n', 'gd', fzf.lsp_definitions, bufopts)
+--            vim.keymap.set('n', 'gy', fzf.lsp_typedefs, bufopts)
+--
+--            vim.keymap.set('n', '<space>s', fzf.lsp_document_symbols, bufopts)
+--            vim.keymap.set('n', '<space>S', fzf.lsp_workspace_symbols, bufopts)
+--            vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufopts)
+--            vim.keymap.set('n', '<space>d', fzf.diagnostics_document, bufopts)
+--            vim.keymap.set('n', '<space>D', fzf.diagnostics_workspace, bufopts)
+--            vim.keymap.set('n', '<space>a', fzf.lsp_code_actions, bufopts)
+--
+--		end
+--    })
+--  end
 }
